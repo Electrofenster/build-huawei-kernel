@@ -24,10 +24,10 @@ if [ "$1" == "install" ]; then
 	fi
 fi
 
-export PATH=$PATH:$(pwd)/tools/aarch64-linux-android-4.9/bin
-export CROSS_COMPILE=$(pwd)/tools/aarch64-linux-android-4.9/bin/aarch64-linux-android-
-
 if [ "$1" == "build" ]; then
+	export PATH=$PATH:$(pwd)/tools/aarch64-linux-android-4.9/bin
+	export CROSS_COMPILE=$(pwd)/tools/aarch64-linux-android-4.9/bin/aarch64-linux-android-
+
 	if [[ -d "./out" ]]; then
 		rm -rf out
 	else
@@ -44,7 +44,7 @@ if [ "$1" == "build" ]; then
 
 	cd ..
 
-	if [[ -f "./out/arch/arm64/boot/Image.gz"]]; then
+	if [[ -f "./out/arch/arm64/boot/Image.gz" ]]; then
 		cp ./out/arch/arm64/boot/Image.gz ./tools/AIK-Linux/boot.img-zImage
 	fi
 fi
