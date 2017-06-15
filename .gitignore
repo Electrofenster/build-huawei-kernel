@@ -1,0 +1,5 @@
+tools/*
+!tools/.keep
+!tools/AIK-Linux.zip
+
+.DS_Store
