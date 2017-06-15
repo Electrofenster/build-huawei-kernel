@@ -5,7 +5,7 @@ if [ "$1" == "install" ]; then
 
 	# install android build tools
 	if [[ ! -d "./tools/aarch64-linux-android-4.9" ]]; then
-		git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 /tools/aarch64-linux-android-4.9
+		git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 ./tools/aarch64-linux-android-4.9
 	fi
 
 	# install kernel
