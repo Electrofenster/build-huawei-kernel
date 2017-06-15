@@ -54,7 +54,7 @@ if [[ "$1" == "build_boot" ]]; then
 
 			./tools/AIK-Linux/AIK-Linux/repackimg.sh
 
-			if [[ -f "./tools/AIK-Linux/AIK-Linux/image-new.img" ]];
+			if [[ -f "./tools/AIK-Linux/AIK-Linux/image-new.img" ]]; then
 				cp ./tools/AIK-Linux/AIK-Linux/image-new.img ./build/kernel-mate9-$(date +%d-%m-%Y).img
 			fi
 		fi
