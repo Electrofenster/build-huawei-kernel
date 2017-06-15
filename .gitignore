@@ -3,4 +3,6 @@ tools/*
 !tools/AIK-Linux.zip
 
 kernel/*
+build/*
+!build/.keep
 .DS_Store

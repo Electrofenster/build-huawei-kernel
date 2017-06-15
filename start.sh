@@ -41,10 +41,24 @@ if [ "$1" == "build" ]; then
 
 	echo "Start building j8"
 	make ARCH=arm64 O=../out -j8
+fi
 
-	cd ..
-
+if [[ "$1" == "build_boot" ]]; then
 	if [[ -f "./out/arch/arm64/boot/Image.gz" ]]; then
-		cp ./out/arch/arm64/boot/Image.gz ./tools/AIK-Linux/boot.img-zImage
+		# cp ./out/arch/arm64/boot/Image.gz ./tools/AIK-Linux/boot.img-zImage
+		./tools/AIK-Linux/AIK-Linux/unpackimg.sh
+		
+		if [[ -d "./tools/AIK-Linux/AIK-Linux/split_img" && -f "./tools/AIK-Linux/AIK-Linux/split_img/boot.img-zImage" ]]; then
+			rm ./tools/AIK-Linux/AIK-Linux/split_img/boot.img-zImage
+			cp ./out/arch/arm64/boot/Image.gz ./tools/AIK-Linux/AIK-Linux/split_img/boot.img-zImage
+
+			./tools/AIK-Linux/AIK-Linux/repackimg.sh
+
+			if [[ -f "./tools/AIK-Linux/AIK-Linux/image-new.img" ]];
+				cp ./tools/AIK-Linux/AIK-Linux/image-new.img ./build/kernel-mate9-$(date +%d-%m-%Y).img
+			fi
+		fi
+	else
+		echo "Build not correctly finished"
 	fi
 fi
