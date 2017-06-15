@@ -20,7 +20,7 @@ if [ "$1" == "install" ]; then
 
 	# install default Mate9Kernel
 	if [[ ! -f "./tools/AIK-Linux/boot.img" ]]; then
-		cp ./stock_kernel/B182.img ./tools/AIK-Linux/boot.img
+		cp ./stock_kernel/B182.img ./tools/AIK-Linux/AIK-Linux/boot.img
 	fi
 fi
 
